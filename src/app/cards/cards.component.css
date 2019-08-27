@@ -1,3 +1,7 @@
 .card-body {
   background-color:lightgray;
 }
+
+.editTextArea {
+  height: 200px;
+}
