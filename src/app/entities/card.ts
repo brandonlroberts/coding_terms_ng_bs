@@ -1,5 +1,5 @@
 export class Card {
-  // id: number;
+  id: number;
   cardHeader: string;
   cardText: string;
 }

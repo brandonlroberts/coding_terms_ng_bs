@@ -9,14 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CardsComponent } from './cards/cards.component';
+import { CardsComponent } from './cards-list/cards.component';
+import { CardsAddComponent } from './cards-add/cards-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CardsComponent
+    CardsComponent,
+    CardsAddComponent
   ],
   imports: [
     NgbModule,

@@ -1,17 +1,41 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError, of } from 'rxjs';
+import { Card } from 'src/app/entities/card';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CardService {
-  private cardsUrl = 'api/cards'; // URL to web api
 
+export class CardService {
+  [x: string]: any;
+  private cardsUrl = 'https://localhost:44333/api/cards/';
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   constructor(private http: HttpClient) {}
 
   public getCards() {
     return this.http.get(
-      `https://codingtermsfordummiesapi.azurewebsites.net/api/values`
+      this.cardsUrl
     );
+  }
+
+  public create(route: string, body) {
+    return this.http.post(this.createCompleteRoute(route, this.urlAddress), body, this.generateHeaders());
+  }
+  public edit(route: string, body) {
+    return this.http.put(this.createCompleteRoute(route, this.urlAddress), body, this.generateHeaders());
+  }
+
+  private createCompleteRoute(route: string, envAddress: string) {
+    return `${route}`;
+  }
+
+  private generateHeaders() {
+    return {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
   }
 }
