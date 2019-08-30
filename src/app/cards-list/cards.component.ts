@@ -25,8 +25,8 @@ export class CardsComponent implements OnInit {
   }
 
   editCard(card) {
-    const newCard: Card = {
-      id: card.id,
+    const newCard: any = {
+      cardID: card.cardID,
       cardHeader: card.cardHeader,
       cardText: card.cardText
     };

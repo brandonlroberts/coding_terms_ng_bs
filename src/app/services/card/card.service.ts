@@ -26,7 +26,7 @@ export class CardService {
     return this.http.post(this.createCompleteRoute(route, this.urlAddress), body, this.generateHeaders());
   }
   public edit(route: string, body) {
-    return this.http.put(this.createCompleteRoute(route, this.urlAddress), body, this.generateHeaders());
+    return this.http.put(this.createCompleteRoute(route + body.cardID, this.urlAddress), body, this.generateHeaders());
   }
 
   private createCompleteRoute(route: string, envAddress: string) {
