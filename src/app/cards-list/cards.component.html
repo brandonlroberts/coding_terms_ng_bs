@@ -27,12 +27,21 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="editCard(card)">Save</button>
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                      <button class="btn btn-sm btn-danger float-left" (click)="deleteCard(card)">Delete Card</button>
+                  </div>
+                  <div class="col-sm">
+                  </div>
+                  <div class="col-sm">
+                      <button class="btn btn-sm btn-outline-success float-right" (click)="editCard(card)">Update Card</button>
+                    </div>
+                </div>
+              </div>
         </div>
       </ng-template>
-
       <button class="btn btn-sm btn-success" (click)="open(content)">Edit</button>
-
     </div>
   </div>
 </div>

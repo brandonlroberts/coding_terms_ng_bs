@@ -37,6 +37,17 @@ export class CardsComponent implements OnInit {
     location.reload();
   }
 
+  deleteCard(card) {
+    const newCard: any = {
+      cardID: card.cardID
+    };
+
+    const apiUrl = 'https://localhost:44333/api/cards/';
+    this.cardService.delete(apiUrl, newCard.cardID).subscribe();
+    this.modalService.dismissAll();
+    location.reload();
+  }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
